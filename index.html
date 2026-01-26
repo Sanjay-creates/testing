@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>The Yaazh </title>
+
+  <!-- SEO -->
+  <meta name="description" content="VoiceConnect is a voice-based AI concept that emotionally connects parents with their children using familiar voices.">
+  <meta name="keywords" content="voice ai, parents care, emotional ai, elderly care, voice assistant">
+  <meta name="author" content="VoiceConnect Team">
+
+  <!-- Open Graph (Social sharing) -->
+  <meta property="og:title" content="VoiceConnect">
+  <meta property="og:description" content="Your child’s voice, always with you.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/preview.png">
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/images/favicon.png" type="image/png">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- JS -->
+  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="bg-white border-b sticky top-0 z-50">
+
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+    <!-- Left: Project Name -->
+    <!-- Left: Logo + Project Name -->
+<div class="flex items-center gap-3">
+  <img
+    src="asssets/logo.png"
+    alt="Logo"
+    class="w-12 h-12 md:w-14 md:h-14 object-contain"
+  />
+  <span class="text-2xl font-extrabold text-gray-900 tracking-wide">
+    Yaazh
+  </span>
+</div>
+
+
+    <!-- Middle: Navigation -->
+    <nav class="hidden md:flex items-center gap-10 text-lg font-medium">
+      <a href="#" class="text-green-700">
+        Home
+      </a>
+      <a href="features.html" class="text-gray-700 hover:text-gray-900 transition">
+        Features
+      </a>
+      <a href="#contact" class="text-gray-700 hover:text-gray-900 transition">
+        Contact
+      </a>
+    </nav>
+
+    <!-- Right: Auth Buttons -->
+<div class="hidden md:flex items-center gap-4">
+        <button id="googleBtn" class="px-6 py-2.5 rounded-lg font-semibold text-white
+               bg-gradient-to-r from-emerald-500 to-teal-600
+               hover:from-emerald-600 hover:to-teal-700
+               transform hover:-translate-y-0.5
+               shadow-md hover:shadow-lg transition-all duration-200">
+          Sign Up
+        </button>
+      </div>
+
+    <!-- Mobile Menu Button -->
+    <button id="menuBtn"
+      class="md:hidden text-gray-800 focus:outline-none">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none"
+           viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+    <nav class="flex flex-col text-lg">
+      <a href="#" class="px-6 py-4 border-b hover:bg-gray-50">Home</a>
+      <a href="#" class="px-6 py-4 border-b hover:bg-gray-50">Features</a>
+      <a href="#" class="px-6 py-4 hover:bg-gray-50">Contact</a>
+    </nav>
+  </div>
+</header>
+
+
+
+
+
+<!-- PAGE 1 -->
+<section class="relative w-full h-[80vh] flex flex-col items-center justify-center 
+                bg-white p-6 overflow-hidden text-slate-900">
+
+  <!-- Title -->
+  <h1 class="text-5xl md:text-6xl font-extrabold text-center
+             tracking-tight animate-fadeUp">
+    Welcome to Yaazh
+  </h1>
+
+  <!-- Subtitle -->
+  <p class="mt-6 text-xl md:text-2xl text-center max-w-2xl
+            opacity-80 animate-fadeUp">
+    What if your parents could hear your voice everyday - even when you're miles away
+  </p>
+
+<!-- CTA Button -->
+<div class="mt-10 animate-fadeUp">
+  <button id="googleBtn"
+     class="group relative inline-flex items-center justify-center
+            px-12 py-4 rounded-full font-semibold text-lg text-white
+            bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500
+            shadow-[0_10px_30px_rgba(168,85,247,0.45)]
+            transition-all duration-300 ease-out
+            hover:scale-110 hover:shadow-[0_20px_45px_rgba(236,72,153,0.6)]
+            active:scale-95
+            overflow-hidden">
+
+    <!-- Glow -->
+    <span
+      class="absolute inset-0 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500
+             opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300">
+    </span>
+
+    <!-- Text -->
+    <span class="relative z-10 flex items-center gap-2">
+      Start Now
+      <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
+    </span>
+  </button>
+</div>
+
+
+
+
+  <!-- Sound Wave -->
+  <div id="voiceAnim"
+       class="flex items-end justify-center gap-3
+              w-full max-w-md h-32 mt-12 animate-fadeUp">
+
+    <span class="w-3 bg-slate-900 rounded-full animate-wave1"></span>
+    <span class="w-3 bg-slate-900 rounded-full animate-wave2"></span>
+    <span class="w-3 bg-slate-900 rounded-full animate-wave3"></span>
+    <span class="w-3 bg-slate-900 rounded-full animate-wave4"></span>
+    <span class="w-3 bg-slate-900 rounded-full animate-wave5"></span>
+  </div>
+</section>
+<style>
+/* Fade + slide up */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeUp {
+  animation: fadeUp 0.8s ease-out forwards;
+}
+
+.delay-150 { animation-delay: 0.15s; }
+.delay-300 { animation-delay: 0.3s; }
+
+/* Sound wave animations */
+@keyframes wave1 { 0%,100%{height:16px} 50%{height:56px} }
+@keyframes wave2 { 0%,100%{height:16px} 50%{height:48px} }
+@keyframes wave3 { 0%,100%{height:16px} 50%{height:64px} }
+@keyframes wave4 { 0%,100%{height:16px} 50%{height:52px} }
+@keyframes wave5 { 0%,100%{height:16px} 50%{height:60px} }
+
+.animate-wave1 { animation: wave1 0.7s ease-in-out infinite; }
+.animate-wave2 { animation: wave2 0.7s ease-in-out 0.1s infinite; }
+.animate-wave3 { animation: wave3 0.7s ease-in-out 0.2s infinite; }
+.animate-wave4 { animation: wave4 0.7s ease-in-out 0.3s infinite; }
+.animate-wave5 { animation: wave5 0.7s ease-in-out 0.4s infinite; }
+</style>
+
+
+
+
+
+
+
+
+<footer id="contact" class="relative bg-white mt-10 ">
+
+  <!-- Soft gradient separator -->
+  <div class="h-[1px] w-full bg-gradient-to-r from-transparent via-purple-300 to-transparent"></div>
+
+  <div class="max-w-7xl mx-auto px-6 py-20">
+
+    <!-- Emotional statement -->
+    <div class="max-w-2xl mb-16">
+      <h2 class="text-3xl font-semibold text-slate-900 leading-tight">
+        Built to keep families emotionally close.
+      </h2>
+      <p class="mt-4 text-slate-600 text-base">
+        Yaazh helps elders hear familiar voices, feel daily presence,
+        and stay connected with their children — even across distance.
+      </p>
+    </div>
+
+    <!-- Content Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-12">
+
+      <!-- Brand block (bigger) -->
+      <div class="md:col-span-2">
+        <h3 class="text-xl font-semibold text-slate-900">Yaazh</h3>
+        <p class="mt-4 text-sm text-slate-600 leading-relaxed max-w-sm">
+          An emotionally intelligent voice assistant designed for elders,
+          blending technology with care, familiarity, and trust.
+        </p>
+
+        <div class="mt-6 flex gap-4 text-sm text-slate-500">
+          <span class="hover:text-slate-900 cursor-pointer">LinkedIn</span>
+          <span class="hover:text-slate-900 cursor-pointer">Twitter</span>
+          <span class="hover:text-slate-900 cursor-pointer">GitHub</span>
+        </div>
+      </div>
+
+      <!-- Product -->
+      <div>
+        <h4 class="text-sm font-semibold text-slate-900 mb-4">Product</h4>
+        <ul class="space-y-2 text-sm text-slate-600">
+          <li>Voice Companion</li>
+          <li>Family Voice AI</li>
+          <li>Daily Check-ins</li>
+          <li>Emergency Support</li>
+        </ul>
+      </div>
+
+      <!-- Company -->
+      <div>
+        <h4 class="text-sm font-semibold text-slate-900 mb-4">Company</h4>
+        <ul class="space-y-2 text-sm text-slate-600">
+          <li>About</li>
+          <li>Mission</li>
+          <li>Contact</li>
+          <li>Roadmap</li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h4 class="text-sm font-semibold text-slate-900 mb-4">Contact</h4>
+        <ul class="space-y-2 text-sm text-slate-600">
+          <li>support@yaazh.ai</li>
+          <li>+91 XXXXX XXXXX</li>
+          <li>India</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="border-t border-slate-200 py-6 text-center text-sm text-slate-500">
+    © 2026 Yaazh. Designed by Team Bug Busters.
+  </div>
+
+</footer>
+
+
+<script type="module" src="auth.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Features | Yaazh</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-white text-slate-900">
+
+  <!-- ================= HEADER ================= -->
+<header class="bg-white border-b sticky top-0 z-50">
+
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+    <!-- Left: Logo + Project Name -->
+    <div class="flex items-center gap-3">
+      <img
+        src="asssets/logo.png"
+        alt="Logo"
+        class="w-12 h-12 md:w-14 md:h-14 object-contain"
+      />
+      <span class="text-2xl font-extrabold text-gray-900 tracking-wide">
+        Yaazh
+      </span>
+    </div>
+
+    <!-- Middle: Navigation -->
+    <nav class="hidden md:flex items-center gap-10 text-lg font-medium">
+      <a href="index.html" class="text-gray-700 hover:text-gray-900 transition">
+        Home
+      </a>
+      <a href="features.html" class="text-green-700">
+        Features
+      </a>
+      <a href="#contact" class="text-gray-700 hover:text-gray-900 transition">
+        Contact
+      </a>
+    </nav>
+
+    <!-- Right: Auth Buttons -->
+    <div class="hidden md:flex items-center gap-4">
+
+
+      <a id="googleBtn"
+         class="px-6 py-2.5 rounded-lg font-semibold text-white
+                bg-gradient-to-r from-emerald-500 to-teal-600
+                hover:from-emerald-600 hover:to-teal-700
+                transform hover:-translate-y-0.5
+                shadow-md hover:shadow-lg
+                transition-all duration-200">
+        Sign Up
+      </a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button id="menuBtn" class="md:hidden text-gray-800 focus:outline-none">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none"
+           viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+    <nav class="flex flex-col text-lg">
+      <a href="index.html" class="px-6 py-4 border-b hover:bg-gray-50">Home</a>
+      <a href="features.html" class="px-6 py-4 border-b hover:bg-gray-50">Features</a>
+      <a href="#contact" class="px-6 py-4 hover:bg-gray-50">Contact</a>
+      <a href="signup.html" class="px-6 py-4 border-t hover:bg-gray-50">Sign Up</a>
+      <a href="login.html" class="px-6 py-4 hover:bg-gray-50">Login</a>
+    </nav>
+  </div>
+
+</header>
+
+<script>
+  // Mobile Menu Toggle
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+</script>
+
+
+
+  <section class="py-28 px-6 text-center max-w-4xl mx-auto opacity-0 translate-y-6 fade-in-section">
+  <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight">
+    Built to Feel Like  
+    <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-pink-500">
+      Family
+    </span>
+  </h1>
+
+  <p class="mt-8 text-xl text-slate-600 leading-relaxed">
+    Yaazh is not just an AI.  
+    It’s a comforting presence designed to emotionally connect elders
+    with the warmth of a son or daughter’s voice.
+  </p>
+</section>
+
+<!-- ================= FEATURES ================= -->
+<section class="px-6 pb-20 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+  
+  <!-- Feature Cards -->
+  <div class="group relative p-8 rounded-3xl border border-slate-200 bg-white
+              transition-all duration-500 ease-out
+              hover:-translate-y-2 hover:shadow-2xl hover:border-transparent
+              opacity-0 translate-y-6 fade-in-section">
+    <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50
+                opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+    <div class="relative z-10">
+      <h3 class="text-2xl font-bold mb-4 transition-colors duration-300 group-hover:text-indigo-600">
+        Familiar Voice AI
+      </h3>
+      <p class="text-slate-600 leading-relaxed transition-colors duration-300 group-hover:text-slate-700">
+        Speaks in a calm, caring tone that feels emotionally familiar —
+        like talking to your own child.
+      </p>
+    </div>
+  </div>
+
+  <div class="group relative p-8 rounded-3xl border border-slate-200 bg-white
+              transition-all duration-500 ease-out
+              hover:-translate-y-2 hover:shadow-2xl hover:border-transparent
+              opacity-0 translate-y-6 fade-in-section">
+    <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50
+                opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+    <div class="relative z-10">
+      <h3 class="text-2xl font-bold mb-4 transition-colors duration-300 group-hover:text-indigo-600">
+        Emotion-Focused Conversations
+      </h3>
+      <p class="text-slate-600 leading-relaxed transition-colors duration-300 group-hover:text-slate-700">
+        Designed to comfort, listen, and respond naturally —
+        not robotic, not scripted.
+      </p>
+    </div>
+  </div>
+
+  <div class="group relative p-8 rounded-3xl border border-slate-200 bg-white
+              transition-all duration-500 ease-out
+              hover:-translate-y-2 hover:shadow-2xl hover:border-transparent
+              opacity-0 translate-y-6 fade-in-section">
+    <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50
+                opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+    <div class="relative z-10">
+      <h3 class="text-2xl font-bold mb-4 transition-colors duration-300 group-hover:text-indigo-600">
+        Always Available
+      </h3>
+      <p class="text-slate-600 leading-relaxed transition-colors duration-300 group-hover:text-slate-700">
+        Whether day or night, Yaazh is always there
+        to talk, listen, and care.
+      </p>
+    </div>
+  </div>
+
+  <div class="group relative p-8 rounded-3xl border border-slate-200 bg-white
+              transition-all duration-500 ease-out
+              hover:-translate-y-2 hover:shadow-2xl hover:border-transparent
+              opacity-0 translate-y-6 fade-in-section">
+    <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50
+                opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+    <div class="relative z-10">
+      <h3 class="text-2xl font-bold mb-4 transition-colors duration-300 group-hover:text-indigo-600">
+        Elder-Friendly Interface
+      </h3>
+      <p class="text-slate-600 leading-relaxed transition-colors duration-300 group-hover:text-slate-700">
+        Large text, simple interactions, and a stress-free experience
+        designed especially for elders.
+      </p>
+    </div>
+  </div>
+
+  <div class="group relative p-8 rounded-3xl border border-slate-200 bg-white
+              transition-all duration-500 ease-out
+              hover:-translate-y-2 hover:shadow-2xl hover:border-transparent
+              opacity-0 translate-y-6 fade-in-section">
+    <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50
+                opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+    <div class="relative z-10">
+      <h3 class="text-2xl font-bold mb-4 transition-colors duration-300 group-hover:text-indigo-600">
+        Daily Emotional Check-ins
+      </h3>
+      <p class="text-slate-600 leading-relaxed transition-colors duration-300 group-hover:text-slate-700">
+        Gentle conversations that reduce loneliness
+        and bring emotional peace every day.
+      </p>
+    </div>
+  </div>
+
+  <div class="group relative p-8 rounded-3xl border border-slate-200 bg-white
+              transition-all duration-500 ease-out
+              hover:-translate-y-2 hover:shadow-2xl hover:border-transparent
+              opacity-0 translate-y-6 fade-in-section">
+    <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50
+                opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+    <div class="relative z-10">
+      <h3 class="text-2xl font-bold mb-4 transition-colors duration-300 group-hover:text-indigo-600">
+        Emergency Awareness
+      </h3>
+      <p class="text-slate-600 leading-relaxed transition-colors duration-300 group-hover:text-slate-700">
+        Designed to recognize distress and help notify
+        family members when something feels wrong.
+      </p>
+    </div>
+  </div>
+
+  <div class="group relative p-8 rounded-3xl border border-slate-200 bg-white
+              transition-all duration-500 ease-out
+              hover:-translate-y-2 hover:shadow-2xl hover:border-transparent
+              opacity-0 translate-y-6 fade-in-section">
+    <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50
+                opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+    <div class="relative z-10">
+      <h3 class="text-2xl font-bold mb-4 transition-colors duration-300 group-hover:text-indigo-600">
+        Memory-Based Conversations
+      </h3>
+      <p class="text-slate-600 leading-relaxed transition-colors duration-300 group-hover:text-slate-700">
+        Remembers names, routines, and preferences
+        to make conversations feel personal.
+      </p>
+    </div>
+  </div>
+
+  <div class="group relative p-8 rounded-3xl border border-slate-200 bg-white
+              transition-all duration-500 ease-out
+              hover:-translate-y-2 hover:shadow-2xl hover:border-transparent
+              opacity-0 translate-y-6 fade-in-section">
+    <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50
+                opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+    <div class="relative z-10">
+      <h3 class="text-2xl font-bold mb-4 transition-colors duration-300 group-hover:text-indigo-600">
+        Privacy & Trust
+      </h3>
+      <p class="text-slate-600 leading-relaxed transition-colors duration-300 group-hover:text-slate-700">
+        Conversations are private, secure,
+        and handled with emotional sensitivity.
+      </p>
+    </div>
+  </div>
+
+  <div class="group relative p-8 rounded-3xl border border-slate-200 bg-white
+              transition-all duration-500 ease-out
+              hover:-translate-y-2 hover:shadow-2xl hover:border-transparent
+              opacity-0 translate-y-6 fade-in-section">
+    <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50
+                opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+    <div class="relative z-10">
+      <h3 class="text-2xl font-bold mb-4 transition-colors duration-300 group-hover:text-indigo-600">
+        Built With Love
+      </h3>
+      <p class="text-slate-600 leading-relaxed transition-colors duration-300 group-hover:text-slate-700">
+        Created to support families
+        and bring comfort to elders living alone.
+      </p>
+    </div>
+  </div>
+
+</section>
+
+<!-- ================= FADE-IN JS ================= -->
+<script>
+  const faders = document.querySelectorAll('.fade-in-section');
+
+  const appearOptions = {
+    threshold: 0.2,
+    rootMargin: "0px 0px -50px 0px"
+  };
+
+  const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.remove('opacity-0', 'translate-y-6');
+      entry.target.classList.add('opacity-100', 'translate-y-0', 'transition-all', 'duration-700', 'ease-out');
+      observer.unobserve(entry.target);
+    });
+  }, appearOptions);
+
+  faders.forEach(fader => {
+    appearOnScroll.observe(fader);
+  });
+</script>
+
+  <!-- ================= FOOTER ================= -->
+<footer id="contact" class="relative bg-white mt-10 ">
+
+  <!-- Soft gradient separator -->
+  <div class="h-[1px] w-full bg-gradient-to-r from-transparent via-purple-300 to-transparent"></div>
+
+  <div class="max-w-7xl mx-auto px-6 py-20">
+
+    <!-- Emotional statement -->
+    <div class="max-w-2xl mb-16">
+      <h2 class="text-3xl font-semibold text-slate-900 leading-tight">
+        Built to keep families emotionally close.
+      </h2>
+      <p class="mt-4 text-slate-600 text-base">
+        Yaazh helps elders hear familiar voices, feel daily presence,
+        and stay connected with their children — even across distance.
+      </p>
+    </div>
+
+    <!-- Content Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-12">
+
+      <!-- Brand block (bigger) -->
+      <div class="md:col-span-2">
+        <h3 class="text-xl font-semibold text-slate-900">Yaazh</h3>
+        <p class="mt-4 text-sm text-slate-600 leading-relaxed max-w-sm">
+          An emotionally intelligent voice assistant designed for elders,
+          blending technology with care, familiarity, and trust.
+        </p>
+
+        <div class="mt-6 flex gap-4 text-sm text-slate-500">
+          <span class="hover:text-slate-900 cursor-pointer">LinkedIn</span>
+          <span class="hover:text-slate-900 cursor-pointer">Twitter</span>
+          <span class="hover:text-slate-900 cursor-pointer">GitHub</span>
+        </div>
+      </div>
+
+      <!-- Product -->
+      <div>
+        <h4 class="text-sm font-semibold text-slate-900 mb-4">Product</h4>
+        <ul class="space-y-2 text-sm text-slate-600">
+          <li>Voice Companion</li>
+          <li>Family Voice AI</li>
+          <li>Daily Check-ins</li>
+          <li>Emergency Support</li>
+        </ul>
+      </div>
+
+      <!-- Company -->
+      <div>
+        <h4 class="text-sm font-semibold text-slate-900 mb-4">Company</h4>
+        <ul class="space-y-2 text-sm text-slate-600">
+          <li>About</li>
+          <li>Mission</li>
+          <li>Contact</li>
+          <li>Roadmap</li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h4 class="text-sm font-semibold text-slate-900 mb-4">Contact</h4>
+        <ul class="space-y-2 text-sm text-slate-600">
+          <li>support@yaazh.ai</li>
+          <li>+91 XXXXX XXXXX</li>
+          <li>India</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="border-t border-slate-200 py-6 text-center text-sm text-slate-500">
+    © 2026 Yaazh. Designed by Team Bug Busters.
+  </div>
+
+</footer>
+
+</body>
+</html>
