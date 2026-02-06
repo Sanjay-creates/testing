@@ -19,7 +19,7 @@ const statusEl = document.getElementById("status");
 const transcriptEl = document.getElementById("transcript");
 const orb = document.getElementById("orb");
 
-// --- Voice Recognition ---
+// --- Speech Recognition ---
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
 recognition.continuous = false;
@@ -29,35 +29,24 @@ recognition.lang = "en-US";
 let isAIspeaking = false;
 let audioUnlocked = false;
 
-// --- SAFE SITE OPENER (FIX POPUP BLOCK) ---
-function openSite(url) {
-    const a = document.createElement("a");
-    a.href = url;
-    a.target = "_blank";
-    a.rel = "noopener noreferrer";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-}
-
-// --- USER CLICK TO UNLOCK AUDIO ---
-document.body.addEventListener('click', () => {
+// --- Unlock Audio on User Click ---
+document.body.addEventListener("click", () => {
     if (!audioUnlocked) {
         audioUnlocked = true;
         const user = auth.currentUser;
         if (user) {
-            const firstName = user.displayName ? user.displayName.split(' ')[0] : "Friend";
+            const firstName = user.displayName ? user.displayName.split(" ")[0] : "Friend";
             speak(`Hello ${firstName}. I am Yaazh, your AI companion. I am ready to assist you.`);
         }
     }
 }, { once: true });
 
-// --- AUTH STATE ---
+// --- Auth State ---
 onAuthStateChanged(auth, (user) => {
     if (user) {
-        const firstName = user.displayName ? user.displayName.split(' ')[0] : "Friend";
-        const nameDisplay = document.getElementById("userName") || document.getElementById("profileName");
-        if (nameDisplay) nameDisplay.textContent = firstName;
+        const firstName = user.displayName ? user.displayName.split(" ")[0] : "Friend";
+        const nameEl = document.getElementById("userName") || document.getElementById("profileName");
+        if (nameEl) nameEl.textContent = firstName;
         if (document.getElementById("userPhoto")) {
             document.getElementById("userPhoto").src = user.photoURL;
         }
@@ -66,7 +55,7 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
-// --- START LISTENING ---
+// --- Start Listening ---
 function startListening() {
     if (isAIspeaking) return;
     try {
@@ -76,11 +65,11 @@ function startListening() {
     } catch (e) {}
 }
 
-// --- SPEECH RESULT ---
+// --- Speech Result ---
 recognition.onresult = (event) => {
-    const command = event.results[0][0].transcript.toLowerCase();
-    if (transcriptEl) transcriptEl.textContent = `"${command}"`;
-    handleConversation(command);
+    const input = event.results[0][0].transcript.toLowerCase();
+    if (transcriptEl) transcriptEl.textContent = `"${input}"`;
+    handleConversation(input);
 };
 
 recognition.onend = () => {
@@ -93,7 +82,7 @@ recognition.onerror = (e) => {
     console.warn("Speech recognition error:", e.error);
 };
 
-// --- SPEAK FUNCTION ---
+// --- Speak Function ---
 function speak(text) {
     isAIspeaking = true;
     try { recognition.stop(); } catch (e) {}
@@ -101,7 +90,6 @@ function speak(text) {
 
     const speech = new SpeechSynthesisUtterance(text);
     const containsTamil = /[\u0B80-\u0BFF]/.test(text);
-
     const voices = window.speechSynthesis.getVoices();
 
     if (containsTamil) {
@@ -128,36 +116,46 @@ function speak(text) {
     window.speechSynthesis.speak(speech);
 }
 
-// --- CONVERSATION ENGINE ---
+// --- Conversation Engine ---
 function handleConversation(input) {
     const nameEl = document.getElementById("profileName") || document.getElementById("userName");
     const name = nameEl ? nameEl.textContent : "Friend";
 
     // TIME & DATE
     if (input.includes("time")) {
-        speak(`The time is ${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}.`);
+        speak(`The time is ${new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}.`);
     }
     else if (input.includes("date") || input.includes("day")) {
-        speak(`Today is ${new Date().toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' })}.`);
+        speak(`Today is ${new Date().toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric" })}.`);
     }
 
-    // APPS
-    else if (input.includes("youtube") || input.includes("music") || input.includes("songs")) {
-        speak("Opening YouTube for you.");
-        openSite("https://www.youtube.com");
-    }
+    // GOOGLE (WORKING)
     else if (input.includes("google") || input.includes("search")) {
-        speak("Opening Google for you.");
-        openSite("https://www.google.com");
+        speak("Opening Google.");
+        setTimeout(() => {
+            window.location.href = "https://www.google.com";
+        }, 800);
     }
+
+    // YOUTUBE (WORKING)
+    else if (input.includes("youtube") || input.includes("music") || input.includes("songs")) {
+        speak("Opening YouTube.");
+        setTimeout(() => {
+            window.location.href = "https://www.youtube.com";
+        }, 800);
+    }
+
+    // PROFILE
     else if (input.includes("profile")) {
         speak("Opening your profile.");
-        setTimeout(() => window.location.href = "profile.html", 1200);
+        setTimeout(() => {
+            window.location.href = "profile.html";
+        }, 1000);
     }
 
     // IDENTITY
     else if (input.includes("who are you")) {
-        speak("I am Yaazh, your personal AI assistant designed for voice interaction and support.");
+        speak("I am Yaazh, your AI assistant designed for voice interaction and support.");
     }
     else if (input.includes("who created you")) {
         speak("I was proudly created by Sanjay as an AI prototype.");
@@ -165,7 +163,7 @@ function handleConversation(input) {
 
     // MOTIVATION
     else if (input.includes("motivate")) {
-        speak("Discipline beats motivation. Keep going. You are building your future.");
+        speak("Small steps every day lead to big success. Keep going.");
     }
 
     // HEALTH (MOCK)
@@ -173,22 +171,22 @@ function handleConversation(input) {
         speak(`Your blood pressure is normal, ${name}.`);
     }
     else if (input.includes("sugar")) {
-        speak("Your blood sugar level is within a healthy range.");
+        speak("Your blood sugar level is within the healthy range.");
     }
 
     // EMOTIONAL
-    else if (input.includes("sad") || input.includes("lonely")) {
+    else if (input.includes("sad") || input.includes("lonely") || input.includes("bored")) {
         speak(`I am here with you, ${name}. You are not alone.`);
     }
 
     // FUN
     else if (input.includes("joke")) {
-        speak("Why do programmers prefer dark mode? Because light attracts bugs.");
+        speak("Why did the programmer quit his job? Because he didn’t get arrays.");
     }
 
     // HACKATHON
     else if (input.includes("project") || input.includes("hackathon")) {
-        speak("This project demonstrates voice recognition, authentication, and AI interaction for real world use.");
+        speak("This project demonstrates voice recognition, authentication, and AI conversation.");
     }
 
     // EXIT
@@ -199,6 +197,6 @@ function handleConversation(input) {
 
     // FALLBACK
     else {
-        speak("I didn't understand that. Please say it again.");
+        speak("Sorry, I didn't understand that. Please repeat.");
     }
 }
