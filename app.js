@@ -121,7 +121,7 @@ function handleConversation(input) {
     const nameEl = document.getElementById("profileName") || document.getElementById("userName");
     const name = nameEl ? nameEl.textContent : "Friend";
 
-    // TIME & DATE
+    // 🕒 TIME & DATE
     if (input.includes("time")) {
         speak(`The time is ${new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}.`);
     }
@@ -129,74 +129,132 @@ function handleConversation(input) {
         speak(`Today is ${new Date().toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric" })}.`);
     }
 
-    // GOOGLE (WORKING)
-    else if (input.includes("google") || input.includes("search")) {
-        speak("Opening Google.");
-        setTimeout(() => {
-            window.location.href = "https://www.google.com";
-        }, 800);
+    // 👋 GREETINGS
+    else if (input.includes("good morning")) {
+        speak(`Good morning, ${name}. I hope you have a productive day.`);
+    }
+    else if (input.includes("good afternoon")) {
+        speak(`Good afternoon, ${name}. How can I assist you?`);
+    }
+    else if (input.includes("good evening")) {
+        speak(`Good evening, ${name}. I hope your day was good.`);
+    }
+    else if (input.includes("good night")) {
+        speak(`Good night, ${name}. Have a peaceful sleep.`);
     }
 
-    // YOUTUBE (WORKING)
-    else if (input.includes("youtube") || input.includes("music") || input.includes("songs")) {
-        speak("Opening YouTube.");
-        setTimeout(() => {
-            window.location.href = "https://www.youtube.com";
-        }, 800);
+    // 🙂 BASIC CHAT
+    else if (input.includes("how are you")) {
+        speak("I am functioning perfectly and ready to help you.");
+    }
+    else if (input.includes("what are you doing")) {
+        speak("I am listening and waiting for your command.");
+    }
+    else if (input.includes("are you there")) {
+        speak("Yes, I am right here with you.");
     }
 
-    // PROFILE
-    else if (input.includes("profile")) {
-        speak("Opening your profile.");
-        setTimeout(() => {
-            window.location.href = "profile.html";
-        }, 1000);
+    // 🧍 PERSONAL
+    else if (input.includes("my name")) {
+        speak(`Your name is ${name}.`);
+    }
+    else if (input.includes("do you know me")) {
+        speak(`Yes, ${name}. You are my registered user.`);
+    }
+    else if (input.includes("are you my friend")) {
+        speak("Yes. I am always your digital companion.");
     }
 
-    // IDENTITY
+    // 🤖 AI IDENTITY
     else if (input.includes("who are you")) {
-        speak("I am Yaazh, your AI assistant designed for voice interaction and support.");
+        speak("I am Yaazh, your AI voice assistant.");
     }
     else if (input.includes("who created you")) {
-        speak("I was proudly created by Sanjay as an AI prototype.");
+        speak("I was created by Sanjay as an AI prototype.");
+    }
+    else if (input.includes("how do you work")) {
+        speak("I convert your voice into text, process it, and respond with speech.");
+    }
+    else if (input.includes("are you intelligent")) {
+        speak("I simulate intelligence using predefined logic and voice processing.");
     }
 
-    // MOTIVATION
+    // 🎓 STUDENT / TECH
+    else if (input.includes("programming")) {
+        speak("Programming is problem solving. Practice daily to improve.");
+    }
+    else if (input.includes("ai")) {
+        speak("Artificial Intelligence allows machines to assist humans intelligently.");
+    }
+    else if (input.includes("future")) {
+        speak("The future belongs to those who keep learning new skills.");
+    }
+    else if (input.includes("college")) {
+        speak("College life is about learning skills, not just marks.");
+    }
+
+    // 💪 MOTIVATION
     else if (input.includes("motivate")) {
-        speak("Small steps every day lead to big success. Keep going.");
+        speak("Discipline is stronger than motivation. Keep moving forward.");
+    }
+    else if (input.includes("success")) {
+        speak("Success comes from consistent effort over time.");
+    }
+    else if (input.includes("failure")) {
+        speak("Failure is a lesson, not the end.");
     }
 
-    // HEALTH (MOCK)
-    else if (input.includes("blood pressure") || input.includes("bp")) {
-        speak(`Your blood pressure is normal, ${name}.`);
+    // ❤️ EMOTIONAL SUPPORT
+    else if (input.includes("sad")) {
+        speak(`I am here with you, ${name}. This feeling will pass.`);
     }
-    else if (input.includes("sugar")) {
-        speak("Your blood sugar level is within the healthy range.");
+    else if (input.includes("lonely")) {
+        speak("You are not alone. I am listening to you.");
+    }
+    else if (input.includes("stressed") || input.includes("stress")) {
+        speak("Take a deep breath. You are doing better than you think.");
+    }
+    else if (input.includes("tired")) {
+        speak("You should take a short rest. Your health matters.");
     }
 
-    // EMOTIONAL
-    else if (input.includes("sad") || input.includes("lonely") || input.includes("bored")) {
-        speak(`I am here with you, ${name}. You are not alone.`);
+    // 🏥 HEALTH (MOCK)
+    else if (input.includes("health")) {
+        speak("Your health status appears stable. Maintain good habits.");
+    }
+    else if (input.includes("drink water")) {
+        speak("Please remember to stay hydrated.");
+    }
+    else if (input.includes("exercise")) {
+        speak("Regular exercise improves both physical and mental health.");
     }
 
-    // FUN
+    // 😂 FUN
     else if (input.includes("joke")) {
-        speak("Why did the programmer quit his job? Because he didn’t get arrays.");
+        speak("Why do programmers prefer dark mode? Because light attracts bugs.");
+    }
+    else if (input.includes("are you real")) {
+        speak("I am virtual, but my support for you is real.");
     }
 
-    // HACKATHON
+    // 🧪 PROJECT / HACKATHON
     else if (input.includes("project") || input.includes("hackathon")) {
-        speak("This project demonstrates voice recognition, authentication, and AI conversation.");
+        speak("This project demonstrates voice recognition and AI conversation.");
     }
 
-    // EXIT
-    else if (input.includes("stop listening") || input.includes("goodbye")) {
-        speak("Goodbye. I will stop listening now.");
+    // 🙏 POLITE
+    else if (input.includes("thank you") || input.includes("thanks")) {
+        speak(`You're welcome, ${name}. Happy to help.`);
+    }
+
+    // 👋 EXIT
+    else if (input.includes("bye") || input.includes("goodbye") || input.includes("stop listening")) {
+        speak("Goodbye. I am always here when you need me.");
         recognition.stop();
     }
 
-    // FALLBACK
+    // ❓ FALLBACK
     else {
-        speak("Sorry, I didn't understand that. Please repeat.");
+        speak("Sorry, I didn't understand that. Please say it again.");
     }
 }
